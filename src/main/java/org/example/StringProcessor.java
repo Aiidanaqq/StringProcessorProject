@@ -5,15 +5,15 @@ import net.objecthunter.exp4j.ExpressionBuilder;
 
 public class StringProcessor {
 
-    // Проверяет, является ли пароль "сильным"
+    // Checks if the password is "strong"
     public boolean isStrongPassword(String password) {
-        return password.matches(".*[A-Z].*") &&       // хотя бы одна заглавная буква
-                password.matches(".*[a-z].*") &&       // хотя бы одна строчная буква
-                password.matches(".*\\d.*") &&         // хотя бы одна цифра
-                password.matches(".*[!@#$%^&*(),.?\":{}|<>\\[\\];'`~=_+-/].*"); // хотя бы один специальный символ
+        return password.matches(".*[A-Z].*") &&       // at least one uppercase letter
+                password.matches(".*[a-z].*") &&       // at least one lowercase letter
+                password.matches(".*\\d.*") &&         // at least one digit
+                password.matches(".*[!@#$%^&*(),.?\":{}|<>\\[\\];'`~=_+-/].*"); // at least one special symbol
     }
 
-    // Считает количество цифр в предложении
+    // Counts the number of digits in the given sentence
     public int calculateDigits(String sentence) {
         int count = 0;
         for (char c : sentence.toCharArray()) {
@@ -24,7 +24,7 @@ public class StringProcessor {
         return count;
     }
 
-    // Считает количество слов в предложении
+    // Counts the number of words in the given sentence
     public int calculateWords(String sentence) {
         if (sentence == null || sentence.isEmpty()) {
             return 0;
@@ -33,7 +33,7 @@ public class StringProcessor {
         return words.length;
     }
 
-    // Вычисляет математическое выражение
+    // Calculates the mathematical expression
     public double calculateExpression(String expression) {
         Expression e = new ExpressionBuilder(expression).build();
         return e.evaluate();
